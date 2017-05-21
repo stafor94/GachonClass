@@ -1,12 +1,15 @@
 package com.stafor.gachonclass;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     login = false;
                     loginBtn.setText("로그인");
-                    Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.logout, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -82,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 //선택된 프래그먼트를 메인 액티비티의 contained에 담아서 표시
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) { }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) { }
         });
@@ -99,10 +100,31 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 id = data.getStringExtra("id"); // Intent를 통해 id를 전달받는다
-                Toast.makeText(this, id + "'" + "' 님 환영합니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "'" + id + "' 님 환영합니다.", Toast.LENGTH_SHORT).show();
                 login = true;   // 로그인 상태를 true로 설정
                 loginBtn.setText("로그아웃"); // 로그인 버튼의 문자를 로그아웃으로 설정
             }
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // 취소키를 누르면 다이어로그 창을 띄움
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            new AlertDialog.Builder(this)
+                    .setTitle("종료하기")
+                    .setMessage(R.string.finish)
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            moveTaskToBack(true);	// protect Other Activity after this Activity finish
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("취소", null)
+                    .show();
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }

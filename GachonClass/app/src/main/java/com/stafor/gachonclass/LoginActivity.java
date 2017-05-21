@@ -25,22 +25,24 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = idEdit.getText().toString();
-                String password = passwordEdit.getText().toString();
+                String id = idEdit.getText().toString();    // 아이디를 받는다
+                String password = passwordEdit.getText().toString();    // 비밀번호를 받는다
+
                 // 입력한 값을 바탕으로 로그인을 시도한다
                 if (login(id, password)) {  // login 메소드가 true를 반환하면
-                    Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.success_login, Toast.LENGTH_SHORT).show();
                     try {
                         Thread.sleep(1000);
                         Intent myIntent = getIntent();
-                        myIntent.putExtra("id", id);
-                        setResult(RESULT_OK, myIntent);
-                        finish();
+                        myIntent.putExtra("id", id);    // id를 인텐트에 담는다
+                        setResult(RESULT_OK, myIntent); // RESULT_OK와 인텐트를 반환
+                        finish();   // 인텐트를 종료한다
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 } else {    // login 메소드가 false를 반환하면
-                    Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.fail_login, Toast.LENGTH_SHORT).show();
+                    // 입력창을 초기화
                     idEdit.setText(null);
                     passwordEdit.setText(null);
                 }

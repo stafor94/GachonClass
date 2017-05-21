@@ -37,7 +37,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:background="@drawable/border2"
         android:orientation="horizontal"
         android:padding="5dp">
@@ -58,7 +58,7 @@
             android:layout_weight="1"
             android:background="#DDDDDD"
             android:text="강의실 예약"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
     </LinearLayout>
 
@@ -77,7 +77,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#DDDDDD"
-            android:text="수업 정보"
+            android:text="강의 정보"
             android:textSize="40sp" />
 
         <ImageView
@@ -92,7 +92,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:background="@drawable/border2"
         android:orientation="horizontal"
         android:padding="5dp">
@@ -112,7 +112,7 @@
             android:layout_weight="1"
             android:background="#DDDDDD"
             android:text="건의사항"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
     </LinearLayout>
 </LinearLayout>

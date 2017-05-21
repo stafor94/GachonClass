@@ -11,34 +11,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#888888"
-        android:orientation="horizontal">
+        android:background="#FF8888"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/btn_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:background="@android:drawable/ic_menu_add" />
+            android:layout_margin="5dp"
+            android:background="@drawable/menu" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
+            android:layout_weight="0.78"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/title" />
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_margin="5dp"
-            android:background="@drawable/rounded_corner"
-            android:text="로그인" />
 
     </LinearLayout>
 
@@ -53,7 +47,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border"
-            android:text="Home" />
+            android:text="홈"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_class"
@@ -61,7 +57,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border"
-            android:text="Class" />
+            android:text="강의실"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_mypage"
@@ -69,15 +67,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border"
-            android:text="My Page" />
+            android:text="내 정보"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_settings"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border"
-            android:text="Settings" />
+            android:text="로그인"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

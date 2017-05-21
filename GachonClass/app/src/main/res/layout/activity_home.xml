@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#555555"
+    android:background="#FFAAAA"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,7 +18,9 @@
             android:id="@+id/btn_lookup"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="#DDDDDD"
             android:text="강의실 조회"
             android:textSize="40sp" />
 
@@ -52,7 +54,9 @@
             android:id="@+id/btn_booking"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="#DDDDDD"
             android:text="강의실 예약"
             android:textSize="40sp" />
 
@@ -70,7 +74,9 @@
             android:id="@+id/btn_class"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="#DDDDDD"
             android:text="수업 정보"
             android:textSize="40sp" />
 
@@ -102,7 +108,9 @@
             android:id="@+id/btn_recommend"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="#DDDDDD"
             android:text="건의사항"
             android:textSize="40sp" />
 

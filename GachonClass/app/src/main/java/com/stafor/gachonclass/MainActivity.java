@@ -5,20 +5,24 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button homeBtn, classBtn, mypageBtn, settingsBtn;
+    Button homeBtn, classBtn, mypageBtn, loginBtn;
     HomeFragment homeFrag;
-
+    final static int REQUEST_CODE = 1001;
+    String id;
     int state = 0; // 0 = home, 1 = class, 2 = mypage, 3 = settings
+    boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this,SplashAcitivty.class)); // 스플래시 화면을 보여준다
+        startActivity(new Intent(this, SplashAcitivty.class)); // 스플래시 화면을 보여준다
 
+        // 앱 실행 시 홈 화면을 보여준다
         homeFrag = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.container, homeFrag).commit();
 
@@ -47,14 +51,34 @@ public class MainActivity extends AppCompatActivity {
                 state = 2;
             }
         });
-        settingsBtn = (Button) findViewById(R.id.btn_settings);
-        settingsBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn = (Button) findViewById(R.id.btn_login);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeFragment();
-                state = 3;
+                if (!login) {
+                    Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivityForResult(myIntent, REQUEST_CODE);
+                } else {
+                    login = false;
+                    loginBtn.setText("로그인");
+                    Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                id = data.getStringExtra("id");
+                Toast.makeText(this, id + "님 환영합니다.", Toast.LENGTH_SHORT).show();
+                login = true;
+                loginBtn.setText("로그아웃");
+            }
+        }
     }
 
     // container에 연결된 프레그먼트를 제거

@@ -11,16 +11,16 @@ import android.widget.Toast;
 
 public class SigninActivity extends AppCompatActivity {
     Button signinBtn, cancelBtn;
-    EditText editName, editStdnum, editPass, editPass2;
+    EditText editName, editStdNum, editPass, editPass2;
     String name, password;
-    int stdnum;
+    int stdNum;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
         editName = (EditText) findViewById(R.id.edit_name);
-        editStdnum = (EditText) findViewById(R.id.edit_stdnum);
+        editStdNum = (EditText) findViewById(R.id.edit_stdNum);
         editPass = (EditText) findViewById(R.id.edit_pass);
         editPass2 = (EditText) findViewById(R.id.edit_pass2);
 
@@ -28,10 +28,10 @@ public class SigninActivity extends AppCompatActivity {
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editName.length() >= 2 && editStdnum.length() >= 9
+                if (editName.length() >= 2 && editStdNum.length() >= 9
                         && editPass.length() >= 8) {
                     name = editName.getText().toString();
-                    stdnum = Integer.parseInt(editStdnum.getText().toString());
+                    stdNum = Integer.parseInt(editStdNum.getText().toString());
                     if (editPass.getText().toString().equals(editPass2.getText().toString())) {
                         password = editPass.getText().toString();
                         Signin();
@@ -50,7 +50,7 @@ public class SigninActivity extends AppCompatActivity {
     public void Signin() {
         Intent myIntent = getIntent();
         myIntent.putExtra("name", name);
-        myIntent.putExtra("stdnum", stdnum);
+        myIntent.putExtra("stdNum", stdNum);
         myIntent.putExtra("password", password);
         setResult(RESULT_OK, myIntent);
     }

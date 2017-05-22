@@ -11,19 +11,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import static android.R.attr.id;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
-    Button menuBtn, loginBtn;
+    ImageButton loginBtn;
     HomeFragment homeFrag;
     CampusFragment classFrag;
     MypageFragment mypageFrag;
     SettingsFragment settingsFrag;
 
     final static int REQUEST_CODE = 1001;   // 로그인 요청코드
-    String id;
+    String name;
+    int stdNum;
     boolean login = false;
 
     @Override
@@ -33,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(this, SplashAcitivty.class)); // 스플래시 화면을 보여준다
 
-        menuBtn = (Button) findViewById(R.id.btn_menu);
-        loginBtn = (Button) findViewById(R.id.btn_login);
+        loginBtn = (ImageButton) findViewById(R.id.btn_login);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(myIntent, REQUEST_CODE);
                 } else {
                     login = false;
-                    loginBtn.setText("로그인");
+                    loginBtn.setImageResource(R.drawable.login_before);
                     Toast.makeText(getApplicationContext(), R.string.logout, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -104,10 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                id = data.getStringExtra("id"); // Intent를 통해 id를 전달받는다
+                stdNum = data.getIntExtra("stdNum", 0); // Intent를 통해 id를 전달받는다
+                name = data.getStringExtra("name"); // Intent를 통해 이름을 전달받는다
                 Toast.makeText(this, "'" + id + "' 님 환영합니다.", Toast.LENGTH_SHORT).show();
                 login = true;   // 로그인 상태를 true로 설정
-                loginBtn.setText("로그아웃"); // 로그인 버튼의 문자를 로그아웃으로 설정
+                loginBtn.setImageResource(R.drawable.login_after);
             }
         }
     }

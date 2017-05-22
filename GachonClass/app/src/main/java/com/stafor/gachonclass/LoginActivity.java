@@ -11,27 +11,27 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn, signinBtn, findidBtn, findpasswordBtn;
-    EditText idEdit, passwordEdit;
-    String id, password;
-    final static int REQUEST_CODE = 1002;
+    EditText stdNumEdit, passwordEdit;
+    String stdNum, name, password;
+    final static int REQUEST_CODE = 1002; // 회원가입 요청코드
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        idEdit = (EditText) findViewById(R.id.edit_id);
+        stdNumEdit = (EditText) findViewById(R.id.edit_stdNum);
         passwordEdit = (EditText) findViewById(R.id.edit_password);
 
         loginBtn = (Button) findViewById(R.id.btn_login);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                id = idEdit.getText().toString();    // 아이디를 받는다
+                stdNum = stdNumEdit.getText().toString();    // 학번을 받는다
                 password = passwordEdit.getText().toString();    // 비밀번호를 받는다
 
                 // 입력한 값을 바탕으로 로그인을 시도한다
-                if (login(id, password)) {  // login 메소드가 true를 반환하면
+                if (login(stdNum, password)) {  // login 메소드가 true를 반환하면
                     Toast.makeText(getApplicationContext(), R.string.success_login, Toast.LENGTH_SHORT).show();
                     try {
                         Thread.sleep(1000);
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {    // login 메소드가 false를 반환하면
                     Toast.makeText(getApplicationContext(), R.string.fail_login, Toast.LENGTH_SHORT).show();
                     // 입력창을 초기화
-                    idEdit.setText(null);
+                    stdNumEdit.setText(null);
                     passwordEdit.setText(null);
                 }
             }
@@ -73,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
     // 메인엑티비티로 응답을 보낸다
     public void returnResult() {
         Intent myIntent = getIntent();
-        myIntent.putExtra("id", id);    // id를 인텐트에 담는다
+        myIntent.putExtra("stdNum", stdNum);    // id를 인텐트에 담는다
+        myIntent.putExtra("name", name);
         setResult(RESULT_OK, myIntent); // RESULT_OK와 인텐트를 반환
         finish();
     }
@@ -84,8 +85,9 @@ public class LoginActivity extends AppCompatActivity {
 
         if (requestCode == REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                id = data.getStringExtra("id");
+                stdNum = data.getStringExtra("stdNum");
                 password = data.getStringExtra("password");
+                name = data.getStringExtra("name");
                 returnResult();
             }
         }

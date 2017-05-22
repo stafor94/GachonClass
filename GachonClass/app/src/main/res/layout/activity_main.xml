@@ -11,35 +11,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF8888"
+        android:background="#AAFFFF"
         android:orientation="horizontal"
         android:weightSum="1">
-
-        <Button
-            android:id="@+id/btn_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/menu" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="60dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/title" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="로그인" />
+            android:layout_margin="5dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/login_before" />
+
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout

@@ -14,6 +14,13 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_settings, container, false);
+
+        MainActivity activity = (MainActivity) getActivity();
+
+        nameText = (TextView) rootView.findViewById(R.id.tv_name);
+        alramText = (TextView) rootView.findViewById(R.id.tv_alram);
+        versionText = (TextView) rootView.findViewById(R.id.tv_version);
+
         return rootView;
     }
 }

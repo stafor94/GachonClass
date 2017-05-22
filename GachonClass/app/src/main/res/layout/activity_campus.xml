@@ -9,7 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="건물 선택"
+        android:text="캠퍼스 맵"
         android:textSize="30sp" />
 
     <ImageView

@@ -11,14 +11,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class ClassFragment extends Fragment {
+public class CampusFragment extends Fragment {
     LinearLayout layout;
     ImageView imageView;
     Button[] buttons = new Button[11];
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_class, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_campus, container, false);
 
         imageView = (ImageView) rootView.findViewById(R.id.img_campus);
         imageView.setOnClickListener(new View.OnClickListener() {

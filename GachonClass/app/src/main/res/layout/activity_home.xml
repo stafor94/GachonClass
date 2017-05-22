@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#DDDDDD"
+            android:background="#55DDDDDD"
             android:text="강의실 조회"
             android:textSize="40sp" />
 
@@ -56,7 +56,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#DDDDDD"
+            android:background="#55DDDDDD"
             android:text="강의실 예약"
             android:textSize="35sp" />
 
@@ -76,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#DDDDDD"
+            android:background="#55DDDDDD"
             android:text="강의 정보"
             android:textSize="40sp" />
 
@@ -110,7 +110,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="#DDDDDD"
+            android:background="#55DDDDDD"
             android:text="건의사항"
             android:textSize="35sp" />
 

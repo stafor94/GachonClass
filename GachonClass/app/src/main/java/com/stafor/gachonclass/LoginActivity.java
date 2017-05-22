@@ -12,6 +12,8 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn, signinBtn, findidBtn, findpasswordBtn;
     EditText idEdit, passwordEdit;
+    String id, password;
+    final static int REQUEST_CODE = 1002;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,17 +27,15 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = idEdit.getText().toString();    // 아이디를 받는다
-                String password = passwordEdit.getText().toString();    // 비밀번호를 받는다
+                id = idEdit.getText().toString();    // 아이디를 받는다
+                password = passwordEdit.getText().toString();    // 비밀번호를 받는다
 
                 // 입력한 값을 바탕으로 로그인을 시도한다
                 if (login(id, password)) {  // login 메소드가 true를 반환하면
                     Toast.makeText(getApplicationContext(), R.string.success_login, Toast.LENGTH_SHORT).show();
                     try {
                         Thread.sleep(1000);
-                        Intent myIntent = getIntent();
-                        myIntent.putExtra("id", id);    // id를 인텐트에 담는다
-                        setResult(RESULT_OK, myIntent); // RESULT_OK와 인텐트를 반환
+                        returnResult();
                         finish();   // 인텐트를 종료한다
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -49,6 +49,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        signinBtn = (Button) findViewById(R.id.btn_signin);
+        signinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signin();
+            }
+        });
+
     }
 
     public boolean login(String id, String password) {
@@ -56,6 +64,30 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         } else {    // 아이디와 비밀번호를 입력하면
             return true;
+        }
+    }
+    // 가입하기로 이동
+    public void signin() {
+        Intent myIntent = new Intent(this, SigninActivity.class);
+        startActivityForResult(myIntent, REQUEST_CODE);
+    }
+    // 메인엑티비티로 응답을 보낸다
+    public void returnResult() {
+        Intent myIntent = getIntent();
+        myIntent.putExtra("id", id);    // id를 인텐트에 담는다
+        setResult(RESULT_OK, myIntent); // RESULT_OK와 인텐트를 반환
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                id = data.getStringExtra("id");
+                password = data.getStringExtra("password");
+                returnResult();
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     Button menuBtn, loginBtn;
     HomeFragment homeFrag;
-    ClassFragment classFrag;
+    CampusFragment classFrag;
     MypageFragment mypageFrag;
 
     final static int REQUEST_CODE = 1001;   // 로그인 요청코드
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 앱 실행 시 홈 화면을 보여준다
         homeFrag = new HomeFragment();
-        classFrag = new ClassFragment();
+        classFrag = new CampusFragment();
         mypageFrag = new MypageFragment();
         // 기본적으로 홈 화면을 보여줌
         getSupportFragmentManager().beginTransaction().add(R.id.container, homeFrag).commit();
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         //TabLayout의 addTab() 메서드를 사용하여 탭 버튼을 추가
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("홈"));
-        tabs.addTab(tabs.newTab().setText("강의실"));
+        tabs.addTab(tabs.newTab().setText("캠퍼스 맵"));
         tabs.addTab(tabs.newTab().setText("내 정보"));
 
         //탭에 OnTabSelectedListener 설정

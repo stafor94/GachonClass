@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     HomeFragment homeFrag;
     CampusFragment classFrag;
     MypageFragment mypageFrag;
+    SettingsFragment settingsFrag;
 
     final static int REQUEST_CODE = 1001;   // 로그인 요청코드
     String id;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         homeFrag = new HomeFragment();
         classFrag = new CampusFragment();
         mypageFrag = new MypageFragment();
+        settingsFrag = new SettingsFragment();
         // 기본적으로 홈 화면을 보여줌
         getSupportFragmentManager().beginTransaction().add(R.id.container, homeFrag).commit();
 
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         tabs.addTab(tabs.newTab().setText("홈"));
         tabs.addTab(tabs.newTab().setText("캠퍼스 맵"));
         tabs.addTab(tabs.newTab().setText("내 정보"));
+        tabs.addTab(tabs.newTab().setText("설정"));
 
         //탭에 OnTabSelectedListener 설정
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -81,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     selected = classFrag;
                 } else if (position == 2) {
                     selected = mypageFrag;
+                } else if (position == 3) {
+                    selected = settingsFrag;
                 }
                 //선택된 프래그먼트를 메인 액티비티의 contained에 담아서 표시
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();

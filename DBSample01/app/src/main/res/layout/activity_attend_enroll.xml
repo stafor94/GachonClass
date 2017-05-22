@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+
+        <ImageButton
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton"
+            android:background="@drawable/home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="출석부"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:textStyle="bold"
+            android:textColor="#090000" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/texttoday"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="출석"
+            android:id="@+id/btn_attend"
+            android:background="#59c1e7"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:onClick="onAttend" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결석"
+            android:id="@+id/btn_absent"
+            android:background="#59c1e7"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp"
+            android:onClick="onAbsent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_attend"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_attend1" />
+    </LinearLayout>
+
+
+</LinearLayout>

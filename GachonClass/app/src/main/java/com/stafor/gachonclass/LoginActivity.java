@@ -35,8 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), R.string.success_login, Toast.LENGTH_SHORT).show();
                     try {
                         Thread.sleep(1000);
-                        returnResult();
-                        finish();   // 인텐트를 종료한다
+                        returnResult(); // 메인엑티비티로 정보를 넘기고 종료
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -76,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         myIntent.putExtra("id", id);    // id를 인텐트에 담는다
         setResult(RESULT_OK, myIntent); // RESULT_OK와 인텐트를 반환
+        finish();
     }
 
     @Override

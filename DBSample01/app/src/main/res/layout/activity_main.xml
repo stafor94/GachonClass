@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/happykids"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/id"
+            android:hint="아이디"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/pw"
+            android:hint="비밀번호"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인"
+            android:id="@+id/btn_login"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="80dp"
+            android:onClick="onbtn_loginClicked"
+            android:background="#59c1e7"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:id="@+id/btn_join"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onbtn_joinClicked"
+            android:layout_marginLeft="10dp"
+            android:background="#59c1e7"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</LinearLayout>

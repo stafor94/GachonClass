@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/insert_dday_text1"
+        android:text="날짜를 선택해주세요"/>
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:layout_below="@+id/insert_dday_text1"
+        android:id="@+id/dday_picker">
+
+    </DatePicker>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dday_picker"
+        android:id="@+id/insert_dday_text"
+        android:text="이벤트를 입력해주세요"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/insert_dday_text"
+        android:id="@+id/insert_dday_edit"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/insert_dday_edit"
+        android:layout_alignParentRight="true"
+        android:text="입력"
+        android:id="@+id/insert_dday_btn"/>
+
+
+</RelativeLayout>

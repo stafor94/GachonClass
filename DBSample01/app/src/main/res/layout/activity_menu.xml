@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/happykids"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:text="유치원"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textColor="#090000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true">>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="80dp">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="출석부"
+                android:id="@+id/btn_attend"
+                android:onClick="onbtn_AttendClicked"
+                android:textColor="#ffffff"
+                android:background="#59c1e7"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="알림장"
+                android:id="@+id/btn_notice"
+                android:onClick="onbtn_NoticeClicked"
+                android:background="#59c1e7"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="80dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:layout_gravity="right"
+            android:layout_marginTop="200dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
